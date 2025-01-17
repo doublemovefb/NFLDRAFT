@@ -1,11 +1,87 @@
-[
-    {
-        "name": "Shaduer Sanders",
-        "position": "Quarterback",
-        "college": "Colorado",
-    },
-    {
-        "name": "Cam Ward",
-        "position": "Quarterback",
-        "college": "Miami",
-    }
+// Full prospects data
+const prospects = [
+    { name: "Travis Hunter", position: "Cornerback", college: "Colorado" },
+    { name: "Will Johnson", position: "Cornerback", college: "Michigan" },
+    { name: "Maxwell Hairston", position: "Cornerback", college: "Kentucky" },
+    { name: "Shavon Revel Jr.", position: "Cornerback", college: "East Carolina" },
+    { name: "Benjamin Morrison", position: "Cornerback", college: "Notre Dame" },
+    { name: "Jahdae Barron", position: "Cornerback", college: "Texas" },
+    { name: "Trey Amos", position: "Cornerback", college: "Ole Miss" },
+    { name: "Davison Igbinosun", position: "Cornerback", college: "Ohio State" },
+    { name: "Denzel Burke", position: "Cornerback", college: "Ohio State" },
+    { name: "Jermari Harris", position: "Cornerback", college: "Iowa" },
+    { name: "Zy Alexander", position: "Cornerback", college: "LSU" },
+    { name: "Kenneth Grant", position: "Defensive Line", college: "Michigan" },
+    { name: "Tyleik Williams", position: "Defensive Line", college: "Ohio State" },
+    { name: "Deone Walker", position: "Defensive Line", college: "Kentucky" },
+    { name: "Nazir Stackhouse", position: "Defensive Line", college: "Georgia" },
+    { name: "Mason Graham", position: "Defensive Line", college: "Michigan" },
+    { name: "Derrick Harmon", position: "Defensive Line", college: "Oregon" },
+    { name: "Walter Nolen", position: "Defensive Line", college: "Ole Miss" },
+    { name: "Alfred Collins", position: "Defensive Line", college: "Texas" },
+    { name: "Shemar Turner", position: "Defensive Line", college: "Texas A&M" },
+    { name: "Omarr Norman-Lott", position: "Defensive Line", college: "Tennessee" },
+    { name: "Howard Cross III", position: "Defensive Line", college: "Notre Dame" },
+    { name: "Nic Scourton", position: "Defensive Line", college: "Texas A&M" },
+    { name: "Landon Jackson", position: "Defensive Line", college: "Arkansas" },
+    { name: "Jordan Burch", position: "Defensive Line", college: "Oregon" },
+    { name: "Abdul Carter", position: "Edge", college: "Penn State" },
+    { name: "James Pearce Jr.", position: "Edge", college: "Tennessee" },
+    { name: "Mykel Williams", position: "Edge", college: "Georgia" },
+    { name: "J.T. Tuimoloau", position: "Edge", college: "Ohio State" },
+    { name: "Shemar Stewart", position: "Edge", college: "Texas A&M" },
+    { name: "Mike Green", position: "Edge", college: "Marshall" },
+    { name: "Kyle Kennard", position: "Edge", college: "South Carolina" },
+    { name: "Princely Umanmielen", position: "Edge", college: "Ole Miss" },
+    { name: "Bradyn Swinson", position: "Edge", college: "LSU" },
+    { name: "Dani Dennis-Sutton", position: "Edge", college: "Penn State" },
+    { name: "Jack Sawyer", position: "Edge", college: "Ohio State" },
+    { name: "Antwaun Powell-Ryland", position: "Edge", college: "Virginia Tech" },
+    { name: "Josaiah Stewart", position: "Edge", college: "Michigan" },
+    { name: "Donovan Ezeiruaku", position: "Edge", college: "Boston College" },
+    { name: "Jared Ivey", position: "Edge", college: "Ole Miss" },
+    { name: "Jihaad Campbell", position: "Linebacker", college: "Alabama" },
+    { name: "Danny Stutsman", position: "Linebacker", college: "Oklahoma" },
+    { name: "Jay Higgins", position: "Linebacker", college: "Iowa" },
+    { name: "Jamon Dumas-Johnson", position: "Linebacker", college: "Kentucky" },
+    { name: "Jonah Monheim", position: "Offensive Center", college: "USC" },
+    { name: "Jonah Savaiinaea", position: "Offensive Guard", college: "Arizona" },
+    { name: "Tyler Booker", position: "Offensive Guard", college: "Alabama" },
+    { name: "Tate Ratledge", position: "Offensive Guard", college: "Georgia" },
+    { name: "Donovan Jackson", position: "Offensive Guard", college: "Ohio State" },
+    { name: "Grey Zabel", position: "Offensive Guard", college: "North Dakota State" },
+    { name: "Marcus Mbow", position: "Offensive Guard", college: "Purdue" },
+    { name: "Barrett Carter", position: "Linebacker", college: "Clemson" },
+    { name: "Jalon Walker", position: "Linebacker", college: "Georgia" },
+    { name: "Smael Mondon Jr.", position: "Linebacker", college: "Georgia" },
+    { name: "Lander Barton", position: "Linebacker", college: "Utah" },
+    { name: "Kelvin Banks Jr.", position: "Offensive Tackle", college: "Texas" },
+    { name: "Will Campbell", position: "Offensive Tackle", college: "LSU" },
+    { name: "Wyatt Milum", position: "Offensive Tackle", college: "West Virginia" },
+    { name: "Aireontae Ersery", position: "Offensive Tackle", college: "Minnesota" },
+    { name: "Cameron Williams", position: "Offensive Tackle", college: "Texas" },
+    { name: "Josh Simmons", position: "Offensive Tackle", college: "Ohio State" },
+    { name: "Emery Jones Jr.", position: "Offensive Tackle", college: "LSU" },
+    { name: "Josh Conerly Jr.", position: "Offensive Tackle", college: "Oregon" },
+    { name: "Ajani Cornelius", position: "Offensive Tackle", college: "Oregon" },
+    { name: "Armand Membou", position: "Offensive Tackle", college: "Missouri" }
+];
+
+// Function to populate the table
+function populateTable(data) {
+    const prospectTable = document.querySelector('#prospect-data');
+    prospectTable.innerHTML = ''; // Clear any existing rows
+
+    data.forEach(prospect => {
+        const row = document.createElement('tr');
+        row.innerHTML = `
+            <td>${prospect.name}</td>
+            <td>${prospect.position}</td>
+            <td>${prospect.college}</td>
+        `;
+        prospectTable.appendChild(row);
+    });
+}
+
+// Populate the table on page load
+populateTable(prospects);
