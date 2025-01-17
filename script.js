@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Add the navigation header here -->
+    <!-- Navigation Header -->
     <header>
         <nav>
             <ul style="display: flex; list-style: none; background-color: #007bff; padding: 10px; margin: 0;">
@@ -21,23 +21,7 @@
         </nav>
     </header>
 
-   // Fetch and display prospects in a table
-fetch('prospects.json')
-    .then(response => response.json())
-    .then(data => {
-        const prospectTable = document.querySelector('#prospect-data');
-        data.forEach(prospect => {
-            const row = document.createElement('tr');
-            row.innerHTML = `
-                <td>${prospect.name}</td>
-                <td>${prospect.position}</td>
-                <td>${prospect.college}</td>
-                <td>${prospect.rating}</td>
-            `;
-            prospectTable.appendChild(row);
-        });
-    })
-    .catch(error => console.error("Error loading prospects:", error));
+    <!-- Prospects Table Section -->
     <section id="prospect-list">
         <h2>Top Prospects</h2>
         <table>
@@ -54,7 +38,8 @@ fetch('prospects.json')
             </tbody>
         </table>
     </section>
+
+    <!-- Link to External JavaScript File -->
+    <script src="script.js"></script>
 </body>
 </html>
-
-});
