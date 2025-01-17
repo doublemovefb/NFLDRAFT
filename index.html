@@ -4,39 +4,62 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NFL Draft Database</title>
-<header>
-    <nav>
-        <ul style="display: flex; list-style: none; background-color: #007bff; padding: 10px; margin: 0;">
-            <li style="margin-right: 20px;"><a href="#custom-board" style="color: white; text-decoration: none; font-size: 18px;">Your Big Board</a></li>
-            <li><a href="#prospect-list" style="color: white; text-decoration: none; font-size: 18px;">Scout Prospects</a></li>
-        </ul>
-    </nav>
-</header>
-    
-<section id="filters">
-    <h2>Filter Prospects</h2>
-    <label for="position-filter">Position:</label>
-    <select id="position-filter">
-        <option value="">All</option>
-        <option value="Quarterback">Quarterback</option>
-        <option value="Running Back">Tight End</option>
-        <option value="Wide Receiver">Wide Receiver</option>
-        <option value="Tight End">Tight End</option>
-        <option value="Defensive Line">Tight End</option>
-        <option value="Linebacker">Tight End</option>
-        <option value="Cornerback">Tight End</option>
-        <option value="Safety">Tight End</option>
-
-    <label for="college-filter">College:</label>
-    <input type="text" id="college-filter" placeholder="Enter college name">
-</section>
-
-</html>
-<head>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Welcome to the NFL Draft Database</h1>
-    <p>Build your own big board for the upcoming NFL Draft!</p>
+    <!-- Navigation Header -->
+    <header>
+        <nav>
+            <ul style="display: flex; list-style: none; background-color: #007bff; padding: 10px; margin: 0;">
+                <li style="margin-right: 20px;">
+                    <a href="#custom-board" style="color: white; text-decoration: none; font-size: 18px;">Your Big Board</a>
+                </li>
+                <li>
+                    <a href="#prospect-list" style="color: white; text-decoration: none; font-size: 18px;">Scout Prospects</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Filter Section -->
+    <section id="filters">
+        <h2>Filter Prospects</h2>
+        <label for="position-filter">Position:</label>
+        <select id="position-filter">
+            <option value="">All</option>
+            <option value="Quarterback">Quarterback</option>
+            <option value="Running Back">Running Back</option>
+            <option value="Wide Receiver">Wide Receiver</option>
+            <option value="Tight End">Tight End</option>
+            <option value="Defensive Line">Defensive Line</option>
+            <option value="Linebacker">Linebacker</option>
+            <option value="Cornerback">Cornerback</option>
+            <option value="Safety">Safety</option>
+        </select>
+
+        <label for="college-filter">College:</label>
+        <input type="text" id="college-filter" placeholder="Enter college name">
+        <button id="filter-button">Filter</button>
+    </section>
+
+    <!-- Player Grades Table -->
+    <section id="prospect-list">
+        <h2>Player Grades</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Position</th>
+                    <th>College</th>
+                    <th>Grade</th>
+                </tr>
+            </thead>
+            <tbody id="prospect-data">
+                <!-- Players will be dynamically added here -->
+            </tbody>
+        </table>
+    </section>
+
     <script src="script.js"></script>
 </body>
+</html>
