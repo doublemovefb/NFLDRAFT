@@ -21,7 +21,23 @@
         </nav>
     </header>
 
-    <!-- Existing content -->
+   // Fetch and display prospects in a table
+fetch('prospects.json')
+    .then(response => response.json())
+    .then(data => {
+        const prospectTable = document.querySelector('#prospect-data');
+        data.forEach(prospect => {
+            const row = document.createElement('tr');
+            row.innerHTML = `
+                <td>${prospect.name}</td>
+                <td>${prospect.position}</td>
+                <td>${prospect.college}</td>
+                <td>${prospect.rating}</td>
+            `;
+            prospectTable.appendChild(row);
+        });
+    })
+    .catch(error => console.error("Error loading prospects:", error));
     <section id="prospect-list">
         <h2>Top Prospects</h2>
         <table>
