@@ -17,6 +17,10 @@ function displayProspects(prospects) {
         const nameLink = document.createElement('a');
         nameLink.href = `player_template.html?name=${encodeURIComponent(player.name)}&position=${encodeURIComponent(player.position)}&college=${encodeURIComponent(player.college)}`;
         nameLink.textContent = player.name;
+        nameLink.addEventListener('click', function(event) {
+            event.preventDefault();
+            loadPlayerTemplate(player);
+        });
         nameCell.appendChild(nameLink);
 
         const positionCell = document.createElement('td');
@@ -31,6 +35,32 @@ function displayProspects(prospects) {
 
         prospectDataContainer.appendChild(row);
     });
+}
+
+function loadPlayerTemplate(player) {
+    // Fetch the player template HTML
+    fetch('player_template.html')
+        .then(response => response.text())
+        .then(template => {
+            // Replace placeholders with player data
+            template = template.replace(/{{name}}/g, player.name)
+                               .replace(/{{position}}/g, player.position)
+                               .replace(/{{college}}/g, player.college)
+                               .replace(/{{scouting_report}}/g, player.scouting_report || "No scouting report available.");
+
+            const positions = ['Quarterback', 'RunningBack', 'WideReceiver', 'OffensiveTackle', 'InteriorOffensiveLineman', 'Edge', 'Cornerback', 'Linebacker', 'DefensiveInterior', 'Safety'];
+            positions.forEach(position => {
+                const isPosition = player.position.toLowerCase() === position.toLowerCase();
+                template = template.replace(new RegExp(`{{#if is${position}}}`, 'g'), isPosition ? '' : '<!--')
+                                   .replace(new RegExp(`{{/if}}`, 'g'), isPosition ? '' : '-->');
+            });
+
+            // Display the player template in a new section or overlay
+            const playerProfileContainer = document.createElement('div');
+            playerProfileContainer.innerHTML = template;
+            document.body.appendChild(playerProfileContainer);
+        })
+        .catch(error => console.error('Error loading player template:', error));
 }
 
 document.addEventListener('DOMContentLoaded', loadProspects);
