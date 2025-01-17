@@ -1,14 +1,44 @@
-document.querySelector('#prospect-data').addEventListener('click', event => {
-    if (event.target.tagName === 'TD') {
-        const row = event.target.parentElement;
-        const playerName = row.children[0].textContent;
-        const playerPosition = row.children[1].textContent;
-        const playerCollege = row.children[2].textContent;
-        const playerRating = row.children[3].textContent;
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NFL Draft Database</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Add the navigation header here -->
+    <header>
+        <nav>
+            <ul style="display: flex; list-style: none; background-color: #007bff; padding: 10px; margin: 0;">
+                <li style="margin-right: 20px;">
+                    <a href="#custom-board" style="color: white; text-decoration: none; font-size: 18px;">Your Big Board</a>
+                </li>
+                <li>
+                    <a href="#prospect-list" style="color: white; text-decoration: none; font-size: 18px;">Scout Prospects</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
 
-        const boardList = document.querySelector('#big-board-list');
-        const listItem = document.createElement('li');
-        listItem.textContent = `${playerName} - ${playerPosition}, ${playerCollege} (Rating: ${playerRating})`;
-        boardList.appendChild(listItem);
-    }
+    <!-- Existing content -->
+    <section id="prospect-list">
+        <h2>Top Prospects</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Position</th>
+                    <th>College</th>
+                    <th>Rating</th>
+                </tr>
+            </thead>
+            <tbody id="prospect-data">
+                <!-- Players will be added dynamically here -->
+            </tbody>
+        </table>
+    </section>
+</body>
+</html>
+
 });
