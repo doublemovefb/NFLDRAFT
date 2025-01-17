@@ -43,10 +43,10 @@ function loadPlayerTemplate(player) {
         .then(response => response.text())
         .then(template => {
             // Replace placeholders with player data
-            template = template.replace(/{{name}}/g, player.name)
-                               .replace(/{{position}}/g, player.position)
-                               .replace(/{{college}}/g, player.college)
-                               .replace(/{{scouting_report}}/g, player.scouting_report || "No scouting report available.");
+            template = template.replace(/{{Travis Hunter}}/g, player.name)
+                               .replace(/{{Cornerback}}/g, player.position)
+                               .replace(/{{Colorado}}/g, player.colorado)
+                               .replace(/{{prospects.json}}/g, player.scouting_report || "No scouting report available.");
 
             const positions = ['Quarterback', 'RunningBack', 'WideReceiver', 'OffensiveTackle', 'InteriorOffensiveLineman', 'Edge', 'Cornerback', 'Linebacker', 'DefensiveInterior', 'Safety'];
             positions.forEach(position => {
