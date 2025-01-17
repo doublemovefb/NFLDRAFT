@@ -17,7 +17,7 @@ function populateTable(data) {
     data.forEach(prospect => {
         const row = document.createElement('tr');
         row.innerHTML = `
-            <td>${prospect.name}</td>
+            <td><a href="${prospect.url}" target="_blank">${prospect.name}</a></td>
             <td>${prospect.position}</td>
             <td>${prospect.college}</td>
         `;
