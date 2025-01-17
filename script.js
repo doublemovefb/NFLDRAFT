@@ -1,33 +1,11 @@
-// Event listener for filter dropdown (if you have one)
-document.querySelector('#position-filter').addEventListener('change', event => {
-    filterProspects(event.target.value);
-});
+// Fetch prospects data and store it in a variable
+let prospects = [];
 
-// Full prospects data
 fetch('prospects.json')
     .then(response => response.json())
-    .then(prospects => {
-        const customBoardData = document.getElementById('custom-board-data');
-        const prospectData = document.getElementById('prospect-data');
-
-        prospects.forEach(prospect => {
-            const row = document.createElement('tr');
-            const nameCell = document.createElement('td');
-            const positionCell = document.createElement('td');
-            const collegeCell = document.createElement('td');
-
-            nameCell.textContent = prospect.name;
-            positionCell.textContent = prospect.position;
-            collegeCell.textContent = prospect.college;
-
-            row.appendChild(nameCell);
-            row.appendChild(positionCell);
-            row.appendChild(collegeCell);
-
-            // Add the row to both tables
-            customBoardData.appendChild(row.cloneNode(true));
-            prospectData.appendChild(row);
-        });
+    .then(data => {
+        prospects = data;
+        populateTable(prospects); // Populate the table on page load
     })
     .catch(error => console.error('Error fetching prospects:', error));
 
@@ -47,10 +25,13 @@ function populateTable(data) {
     });
 }
 
-// Populate the table on page load
-fetch('prospects.json')
-    .then(response => response.json())
-    .then(prospects => {
-        populateTable(prospects);
-    })
-    .catch(error => console.error('Error fetching prospects:', error));
+// Event listener for filter dropdown (if you have one)
+document.querySelector('#position-filter').addEventListener('change', event => {
+    filterProspects(event.target.value);
+});
+
+// Function to filter prospects by position
+function filterProspects(position) {
+    const filteredData = prospects.filter(prospect => prospect.position === position || position === 'All');
+    populateTable(filteredData);
+}
