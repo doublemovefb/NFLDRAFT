@@ -9,6 +9,34 @@
         function updateOutput(slider, outputId) {
             document.getElementById(outputId).innerText = slider.value;
         }
+
+         function loadPlayerTemplate(player) {
+            let template = document.getElementById('player-template').innerHTML;
+
+            template = template.replace(/{{name}}/g, player.name)
+                               .replace(/{{position}}/g, player.position)
+                               .replace(/{{college}}/g, player.college)
+                               .replace(/{{scouting_report}}/g, player.scouting_report);
+
+            const positions = ['Quarterback', 'RunningBack', 'WideReceiver', 'OffensiveTackle', 'InteriorOffensiveLineman', 'Edge', 'Cornerback', 'Linebacker', 'DefensiveInterior', 'Safety'];
+            positions.forEach(position => {
+                const isPosition = player.position.toLowerCase() === position.toLowerCase();
+                template = template.replace(new RegExp(`{{#if is${position}}}`, 'g'), isPosition ? '' : '<!--')
+                                   .replace(new RegExp(`{{/if}}`, 'g'), isPosition ? '' : '-->');
+            });
+
+            document.getElementById('player-profile').innerHTML = template;
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const examplePlayer = {
+                name: "John Doe",
+                position: "Quarterback",
+                college: "Some College",
+                scouting_report: "This player is very fast and agile..."
+            };
+            loadPlayerTemplate(examplePlayer);
+        });
     </script>
 </head>
 <body>
@@ -20,6 +48,32 @@
         <h3>Scouting Report</h3>
         <p>{{scouting_report}}</p>
     </section>
+
+    <div id="player-profile"></div>
+
+    <script type="text/html" id="player-template">
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>{{name}} - Scouting Report</title>
+            <link rel="stylesheet" href="../style.css">
+            <script>
+                function updateOutput(slider, outputId) {
+                    document.getElementById(outputId).innerText = slider.value;
+                }
+            </script>
+        </head>
+        <body>
+            <header>
+                <h1>{{name}}</h1>
+                <h2>{{position}} - {{college}}</h2>
+            </header>
+            <section>
+                <h3>Scouting Report</h3>
+                <p>{{scouting_report}}</p>
+            </section>
 
     <!-- Conditional sections based on the position -->
     {{#if isQuarterback}}
