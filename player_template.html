@@ -20,41 +20,543 @@
         <h3>Scouting Report</h3>
         <p>{{scouting_report}}</p>
     </section>
+
+    <!-- Conditional sections based on the position -->
+    {{#if isQuarterback}}
+    <section>
+        <h3>Scout the Player (Quarterback)</h3>
+        <!-- Accuracy Slider -->
+        <label for="accuracy">Accuracy: <span id="accuracyValue">5.0</span></label><br>
+        <input type="range" id="accuracy" name="accuracy" min="1.0" max="10.0" step="0.1" value="5.0" oninput="updateOutput(this, 'accuracyValue')"><br>
+
+        <!-- Quarterback-Specific Traits -->
+        <label for="armStrength">Arm Strength: <span id="armStrengthValue">5.0</span></label><br>
+        <input type="range" id="armStrength" name="armStrength" min="1.0" max="10.0" step="0.1" value="5.0" oninput="updateOutput(this, 'armStrengthValue')"><br>
+
+        <label for="throwingMechanics">Throwing Mechanics: <span id="throwingMechanicsValue">5.0</span></label><br>
+        <input type="range" id="throwingMechanics" name="throwingMechanics" min="1.0" max="10.0" step="0.1" value="5.0" oninput="updateOutput(this, 'throwingMechanicsValue')"><br>
+
+        <label for="release">Release: <span id="releaseValue">5.0</span></label><br>
+        <input type="range" id="release" name="release" min="1.0" max="10.0" step="0.1" value="5.0" oninput="updateOutput(this, 'releaseValue')"><br>
+
+        <label for="speedAgility">Speed/Agility: <span id="speedAgilityValue">5.0</span></label><br>
+        <input type="range" id="speedAgility" name="speedAgility" min="1.0" max="10.0" step="0.1" value="5.0" oninput="updateOutput(this, 'speedAgilityValue')"><br>
+
+        <label for="shortAccuracy">Short Accuracy: <span id="shortAccuracyValue">5.0</span></label><br>
+        <input type="range" id="shortAccuracy" name="shortAccuracy" min="1.0" max="10.0" step="0.1" value="5.0" oninput="updateOutput(this, 'shortAccuracyValue')"><br>
+
+        <label for="intermediateAccuracy">Intermediate Accuracy: <span id="intermediateAccuracyValue">5.0</span></label><br>
+        <input type="range" id="intermediateAccuracy" name="intermediateAccuracy" min="1.0" max="10.0" step="0.1" value="5.0" oninput="updateOutput(this, 'intermediateAccuracyValue')"><br>
+
+        <label for="deepAccuracy">Deep Accuracy: <span id="deepAccuracyValue">5.0</span></label><br>
+        <input type="range" id="deepAccuracy" name="deepAccuracy" min="1.0" max="10.0" step="0.1" value="5.0" oninput="updateOutput(this, 'deepAccuracyValue')"><br>
+
+        <label for="decisionMaking">Decision-Making: <span id="decisionMakingValue">5.0</span></label><br>
+        <input type="range" id="decisionMaking" name="decisionMaking" min="1.0" max="10.0" step="0.1" value="5.0" oninput="updateOutput(this, 'decisionMakingValue')"><br>
+
+        <label for="anticipation">Anticipation: <span id="anticipationValue">5.0</span></label><br>
+        <input type="range" id="anticipation" name="anticipation" min="1.0" max="10.0" step="0.1" value="5.0" oninput="updateOutput(this, 'anticipationValue')"><br>
+
+        <label for="timing">Timing: <span id="timingValue">5.0</span></label><br>
+        <input type="range" id="timing" name="timing" min="1.0" max="10.0" step="0.1" value="5.0" oninput="updateOutput(this, 'timingValue')"><br>
+
+        <label for="touch">Touch: <span id="touchValue">5.0</span></label><br>
+        <input type="range" id="touch" name="touch" min="1.0" max="10.0" step="0.1" value="5.0" oninput="updateOutput(this, 'touchValue')"><br>
+
+        <label for="simpleProcessing">Simple Processing: <span id="simpleProcessingValue">5.0</span></label><br>
+        <input type="range" id="simpleProcessing" name="simpleProcessing" min="1.0" max="10.0" step="0.1" value="5.0" oninput="updateOutput(this, 'simpleProcessingValue')"><br>
+
+        <label for="advancedProcessing">Advanced Processing: <span id="advancedProcessingValue">5.0</span></label><br>
+        <input type="range" id="advancedProcessing" name="advancedProcessing" min="1.0" max="10.0" step="0.1" value="5.0" oninput="updateOutput(this, 'advancedProcessingValue')"><br>
+
+        <label for="pocketPresence">Pocket Presence: <span id="pocketPresenceValue">5.0</span></label><br>
+        <input type="range" id="pocketPresence" name="pocketPresence" min="1.0" max="10.0" step="0.1" value="5.0" oninput="updateOutput(this, 'pocketPresenceValue')"><br>
+
+        <label for="pocketPressure">Pocket Pressure: <span id="pocketPressureValue">5.0</span></label><br>
+        <input type="range" id="pocketPressure" name="pocketPressure" min="1.0" max="10.0" step="0.1" value="5.0" oninput="updateOutput(this, 'pocketPressureValue')"><br>
+
+        <label for="footwork">Footwork: <span id="footworkValue">5.0</span></label><br>
+        <input type="range" id="footwork" name="footwork" min="1.0" max="10.0" step="0.1" value="5.0" oninput="updateOutput(this, 'footworkValue')"><br>
+
+        <label for="throwingOnTheRun">Throwing on the Run: <span id="throwingOnTheRunValue">5.0</span></label><br>
+        <input type="range" id="throwingOnTheRun" name="throwingOnTheRun" min="1.0" max="10.0" step="0.1" value="5.0" oninput="updateOutput(this, 'throwingOnTheRunValue')"><br>
+
+        <label for="progressions">Progressions: <span id="progressionsValue">5.0</span></label><br>
+        <input type="range" id="progressions" name="progressions" min="1.0" max="10.0" step="0.1" value="5.0" oninput="updateOutput(this, 'progressionsValue')"><br>
+
+        <label for="redZoneProcessing">RedZone Processing: <span id="redZoneProcessingValue">5.0</span></label><br>
+        <input type="range" id="redZoneProcessing" name="redZoneProcessing" min="1.0" max="10.0" step="0.1" value="5.0" oninput="updateOutput(this, 'redZoneProcessingValue')"><br>
+    </form>
+</section>
+    {{/if}}
+
+    {{#if isRunningBack}}
+    <section>
+    <h3>Scout the Player (Running Back)</h3>
+    <form>
+        <label for="speed">Speed: <span id="speedValue">5.0</span></label><br>
+        <input type="range" id="speed" name="speed" min="1.0" max="10.0" step="0.1" value="5.0" oninput="updateOutput(this, 'speedValue')"><br>
+
+        <label for="agility">Agility: <span id="agilityValue">5.0</span></label><br>
+        <input type="range" id="agility" name="agility" min="1.0" max="10.0" step="0.1" value="5.0" oninput="updateOutput(this, 'agilityValue')"><br>
+
+        <label for="vision">Vision: <span id="visionValue">5.0</span></label><br>
+        <input type="range" id="vision" name="vision" min="1.0" max="10.0" step="0.1" value="5.0" oninput="updateOutput(this, 'visionValue')"><br>
+
+        <label for="power">Power: <span id="powerValue">5.0</span></label><br>
+        <input type="range" id="power" name="power" min="1.0" max="10.0" step="0.1" value="5.0" oninput="updateOutput(this, 'powerValue')"><br>
+
+        <label for="elusiveness">Elusiveness: <span id="elusivenessValue">5.0</span></label><br>
+        <input type="range" id="elusiveness" name="elusiveness" min="1.0" max="10.0" step="0.1" value="5.0" oninput="updateOutput(this, 'elusivenessValue')"><br>
+
+        <label for="balance">Balance: <span id="balanceValue">5.0</span></label><br>
+        <input type="range" id="balance" name="balance" min="1.0" max="10.0" step="0.1" value="5.0" oninput="updateOutput(this, 'balanceValue')"><br>
+
+        <label for="acceleration">Acceleration: <span id="accelerationValue">5.0</span></label><br>
+        <input type="range" id="acceleration" name="acceleration" min="1.0" max="10.0" step="0.1" value="5.0" oninput="updateOutput(this, 'accelerationValue')"><br>
+
+        <label for="passProtection">Pass Protection: <span id="passProtectionValue">5.0</span></label><br>
+        <input type="range" id="passProtection" name="passProtection" min="1.0" max="10.0" step="0.1" value="5.0" oninput="updateOutput(this, 'passProtectionValue')"><br>
+
+        <label for="receivingAbility">Receiving Ability: <span id="receivingAbilityValue">5.0</span></label><br>
+        <input type="range" id="receivingAbility" name="receivingAbility" min="1.0" max="10.0" step="0.1" value="5.0" oninput="updateOutput(this, 'receivingAbilityValue')"><br>
+
+        <label for="burst">Burst: <span id="burstValue">5.0</span></label><br>
+        <input type="range" id="burst" name="burst" min="1.0" max="10.0" step="0.1" value="5.0" oninput="updateOutput(this, 'burstValue')"><br>
+
+        <label for="footwork">Footwork: <span id="footworkValue">5.0</span></label><br>
+        <input type="range" id="footwork" name="footwork" min="1.0" max="10.0" step="0.1" value="5.0" oninput="updateOutput(this, 'footworkValue')"><br>
+
+        <label for="toughness">Toughness: <span id="toughnessValue">5.0</span></label><br>
+        <input type="range" id="toughness" name="toughness" min="1.0" max="10.0" step="0.1" value="5.0" oninput="updateOutput(this, 'toughnessValue')"><br>
+
+        <label for="durability">Durability: <span id="durabilityValue">5.0</span></label><br>
+        <input type="range" id="durability" name="durability" min="1.0" max="10.0" step="0.1" value="5.0" oninput="updateOutput(this, 'durabilityValue')"><br>
+
+        <label for="openFieldAwareness">Open Field Awareness: <span id="openFieldAwarenessValue">5.0</span></label><br>
+        <input type="range" id="openFieldAwareness" name="openFieldAwareness" min="1.0" max="10.0" step="0.1" value="5.0" oninput="updateOutput(this, 'openFieldAwarenessValue')"><br>
+
+        <label for="ballSecurity">Ball Security: <span id="ballSecurityValue">5.0</span></label><br>
+        <input type="range" id="ballSecurity" name="ballSecurity" min="1.0" max="10.0" step="0.1" value="5.0" oninput="updateOutput(this, 'ballSecurityValue')"><br>
+    </form>
+</section>
+    {{/if}}
+
+    {{#if isWideReceiver}}
+    <section>
+    <h3>Scout the Player (Wide Receiver)</h3>
+    <form>
+        <label for="speed">Speed: <span id="speedValue">5.0</span></label><br>
+        <input type="range" id="speed" name="speed" min="1.0" max="10.0" step="0.1" value="5.0" oninput="updateOutput(this, 'speedValue')"><br>
+
+        <label for="agility">Agility: <span id="agilityValue">5.0</span></label><br>
+        <input type="range" id="agility" name="agility" min="1.0" max="10.0" step="0.1" value="5.0" oninput="updateOutput(this, 'agilityValue')"><br>
+
+        <label for="hands">Hands: <span id="handsValue">5.0</span></label><br>
+        <input type="range" id="hands" name="hands" min="1.0" max="10.0" step="0.1" value="5.0" oninput="updateOutput(this, 'handsValue')"><br>
+
+        <label for="routeRunning">Route Running: <span id="routeRunningValue">5.0</span></label><br>
+        <input type="range" id="routeRunning" name="routeRunning" min="1.0" max="10.0" step="0.1" value="5.0" oninput="updateOutput(this, 'routeRunningValue')"><br>
+
+        <label for="release">Release: <span id="releaseValue">5.0</span></label><br>
+        <input type="range" id="release" name="release" min="1.0" max="10.0" step="0.1" value="5.0" oninput="updateOutput(this, 'releaseValue')"><br>
+
+        <label for="catchRadius">Catch Radius: <span id="catchRadiusValue">5.0</span></label><br>
+        <input type="range" id="catchRadius" name="catchRadius" min="1.0" max="10.0" step="0.1" value="5.0" oninput="updateOutput(this, 'catchRadiusValue')"><br>
+
+        <label for="acceleration">Acceleration: <span id="accelerationValue">5.0</span></label><br>
+        <input type="range" id="acceleration" name="acceleration" min="1.0" max="10.0" step="0.1" value="5.0" oninput="updateOutput(this, 'accelerationValue')"><br>
+
+        <label for="elusiveness">Elusiveness: <span id="elusivenessValue">5.0</span></label><br>
+        <input type="range" id="elusiveness" name="elusiveness" min="1.0" max="10.0" step="0.1" value="5.0" oninput="updateOutput(this, 'elusivenessValue')"><br>
+
+        <label for="balance">Balance: <span id="balanceValue">5.0</span></label><br>
+        <input type="range" id="balance" name="balance" min="1.0" max="10.0" step="0.1" value="5.0" oninput="updateOutput(this, 'balanceValue')"><br>
+
+        <label for="toughness">Toughness: <span id="toughnessValue">5.0</span></label><br>
+        <input type="range" id="toughness" name="toughness" min="1.0" max="10.0" step="0.1" value="5.0" oninput="updateOutput(this, 'toughnessValue')"><br>
+
+        <label for="fieldAwareness">Field Awareness: <span id="fieldAwarenessValue">5.0</span></label><br>
+        <input type="range" id="fieldAwareness" name="fieldAwareness" min="1.0" max="10.0" step="0.1" value="5.0" oninput="updateOutput(this, 'fieldAwarenessValue')"><br>
+
+        <label for="jumpingAbility">Jumping Ability: <span id="jumpingAbilityValue">5.0</span></label><br>
+        <input type="range" id="jumpingAbility" name="jumpingAbility" min="1.0" max="10.0" step="0.1" value="5.0" oninput="updateOutput(this, 'jumpingAbilityValue')"><br>
+
+        <label for="yac">Yards After Catch (YAC): <span id="yacValue">5.0</span></label><br>
+        <input type="range" id="yac" name="yac" min="1.0" max="10.0" step="0.1" value="5.0" oninput="updateOutput(this, 'yacValue')"><br>
+
+        <label for="contestedCatch">Contested Catch Ability: <span id="contestedCatchValue">5.0</span></label><br>
+        <input type="range" id="contestedCatch" name="contestedCatch" min="1.0" max="10.0" step="0.1" value="5.0" oninput="updateOutput(this, 'contestedCatchValue')"><br>
+
+        <label for="separation">Separation: <span id="separationValue">5.0</span></label><br>
+        <input type="range" id="separation" name="separation" min="1.0" max="10.0" step="0.1" value="5.0" oninput="updateOutput(this, 'separationValue')"><br>
+    </form>
+</section>
+    {{/if}}
+
+    {{#if isOffensiveTackle}}
+<section>
+    <h3>Scout the Player (Offensive Tackle)</h3>
+    <form>
+        <label for="passBlocking">Pass Blocking: <span id="passBlockingValue">5.0</span></label><br>
+        <input type="range" id="passBlocking" name="passBlocking" min="1.0" max="10.0" step="0.1" value="5.0" oninput="updateOutput(this, 'passBlockingValue')"><br>
+
+        <label for="runBlocking">Run Blocking: <span id="runBlockingValue">5.0</span></label><br>
+        <input type="range" id="runBlocking" name="runBlocking" min="1.0" max="10.0" step="0.1" value="5.0" oninput="updateOutput(this, 'runBlockingValue')"><br>
+
+        <label for="footwork">Footwork: <span id="footworkValue">5.0</span></label><br>
+        <input type="range" id="footwork" name="footwork" min="1.0" max="10.0" step="0.1" value="5.0" oninput="updateOutput(this, 'footworkValue')"><br>
+
+        <label for="handPlacement">Hand Placement: <span id="handPlacementValue">5.0</span></label><br>
+        <input type="range" id="handPlacement" name="handPlacement" min="1.0" max="10.0" step="0.1" value="5.0" oninput="updateOutput(this, 'handPlacementValue')"><br>
+
+        <label for="strength">Strength: <span id="strengthValue">5.0</span></label><br>
+        <input type="range" id="strength" name="strength" min="1.0" max="10.0" step="0.1" value="5.0" oninput="updateOutput(this, 'strengthValue')"><br>
+
+        <label for="agility">Agility: <span id="agilityValue">5.0</span></label><br>
+        <input type="range" id="agility" name="agility" min="1.0" max="10.0" step="0.1" value="5.0" oninput="updateOutput(this, 'agilityValue')"><br>
+
+        <label for="balance">Balance: <span id="balanceValue">5.0</span></label><br>
+        <input type="range" id="balance" name="balance" min="1.0" max="10.0" step="0.1" value="5.0" oninput="updateOutput(this, 'balanceValue')"><br>
+
+        <label for="awareness">Awareness: <span id="awarenessValue">5.0</span></label><br>
+        <input type="range" id="awareness" name="awareness" min="1.0" max="10.0" step="0.1" value="5.0" oninput="updateOutput(this, 'awarenessValue')"><br>
+
+        <label for="stamina">Stamina: <span id="staminaValue">5.0</span></label><br>
+        <input type="range" id="stamina" name="stamina" min="1.0" max="10.0" step="0.1" value="5.0" oninput="updateOutput(this, 'staminaValue')"><br>
+
+        <label for="physicality">Physicality: <span id="physicalityValue">5.0</span></label><br>
+        <input type="range" id="physicality" name="physicality" min="1.0" max="10.0" step="0.1" value="5.0" oninput="updateOutput(this, 'physicalityValue')"><br>
+
+        <label for="anchor">Anchor: <span id="anchorValue">5.0</span></label><br>
+        <input type="range" id="anchor" name="anchor" min="1.0" max="10.0" step="0.1" value="5.0" oninput="updateOutput(this, 'anchorValue')"><br>
+
+        <label for="quickness">Quickness: <span id="quicknessValue">5.0</span></label><br>
+        <input type="range" id="quickness" name="quickness" min="1.0" max="10.0" step="0.1" value="5.0" oninput="updateOutput(this, 'quicknessValue')"><br>
+
+        <label for="lateralMovement">Lateral Movement: <span id="lateralMovementValue">5.0</span></label><br>
+        <input type="range" id="lateralMovement" name="lateralMovement" min="1.0" max="10.0" step="0.1" value="5.0" oninput="updateOutput(this, 'lateralMovementValue')"><br>
+
+        <label for="communication">Communication: <span id="communicationValue">5.0</span></label><br>
+        <input type="range" id="communication" name="communication" min="1.0" max="10.0" step="0.1" value="5.0" oninput="updateOutput(this, 'communicationValue')"><br>
+
+        <label for="recovery">Recovery: <span id="recoveryValue">5.0</span></label><br>
+        <input type="range" id="recovery" name="recovery" min="1.0" max="10.0" step="0.1" value="5.0" oninput="updateOutput(this, 'recoveryValue')"><br>
+    </form>
+</section>
+{{/if}}
+
+    {{#if isInteriorOffensiveLineman}}
+<section>
+    <h3>Scout the Player (Interior Offensive Lineman)</h3>
+    <form>
+        <label for="passBlocking">Pass Blocking: <span id="passBlockingValue">5.0</span></label><br>
+        <input type="range" id="passBlocking" name="passBlocking" min="1.0" max="10.0" step="0.1" value="5.0" oninput="updateOutput(this, 'passBlockingValue')"><br>
+
+        <label for="runBlocking">Run Blocking: <span id="runBlockingValue">5.0</span></label><br>
+        <input type="range" id="runBlocking" name="runBlocking" min="1.0" max="10.0" step="0.1" value="5.0" oninput="updateOutput(this, 'runBlockingValue')"><br>
+
+        <label for="strength">Strength: <span id="strengthValue">5.0</span></label><br>
+        <input type="range" id="strength" name="strength" min="1.0" max="10.0" step="0.1" value="5.0" oninput="updateOutput(this, 'strengthValue')"><br>
+
+        <label for="footwork">Footwork: <span id="footworkValue">5.0</span></label><br>
+        <input type="range" id="footwork" name="footwork" min="1.0" max="10.0" step="0.1" value="5.0" oninput="updateOutput(this, 'footworkValue')"><br>
+
+        <label for="handPlacement">Hand Placement: <span id="handPlacementValue">5.0</span></label><br>
+        <input type="range" id="handPlacement" name="handPlacement" min="1.0" max="10.0" step="0.1" value="5.0" oninput="updateOutput(this, 'handPlacementValue')"><br>
+
+        <label for="awareness">Awareness: <span id="awarenessValue">5.0</span></label><br>
+        <input type="range" id="awareness" name="awareness" min="1.0" max="10.0" step="0.1" value="5.0" oninput="updateOutput(this, 'awarenessValue')"><br>
+
+        <label for="stamina">Stamina: <span id="staminaValue">5.0</span></label><br>
+        <input type="range" id="stamina" name="stamina" min="1.0" max="10.0" step="0.1" value="5.0" oninput="updateOutput(this, 'staminaValue')"><br>
+
+        <label for="leverage">Leverage: <span id="leverageValue">5.0</span></label><br>
+        <input type="range" id="leverage" name="leverage" min="1.0" max="10.0" step="0.1" value="5.0" oninput="updateOutput(this, 'leverageValue')"><br>
+
+        <label for="physicality">Physicality: <span id="physicalityValue">5.0</span></label><br>
+        <input type="range" id="physicality" name="physicality" min="1.0" max="10.0" step="0.1" value="5.0" oninput="updateOutput(this, 'physicalityValue')"><br>
+
+        <label for="anchor">Anchor: <span id="anchorValue">5.0</span></label><br>
+        <input type="range" id="anchor" name="anchor" min="1.0" max="10.0" step="0.1" value="5.0" oninput="updateOutput(this, 'anchorValue')"><br>
+
+        <label for="agility">Agility: <span id="agilityValue">5.0</span></label><br>
+        <input type="range" id="agility" name="agility" min="1.0" max="10.0" step="0.1" value="5.0" oninput="updateOutput(this, 'agilityValue')"><br>
+
+        <label for="quickness">Quickness: <span id="quicknessValue">5.0</span></label><br>
+        <input type="range" id="quickness" name="quickness" min="1.0" max="10.0" step="0.1" value="5.0" oninput="updateOutput(this, 'quicknessValue')"><br>
+
+        <label for="balance">Balance: <span id="balanceValue">5.0</span></label><br>
+        <input type="range" id="balance" name="balance" min="1.0" max="10.0" step="0.1" value="5.0" oninput="updateOutput(this, 'balanceValue')"><br>
+
+        <label for="communication">Communication: <span id="communicationValue">5.0</span></label><br>
+        <input type="range" id="communication" name="communication" min="1.0" max="10.0" step="0.1" value="5.0" oninput="updateOutput(this, 'communicationValue')"><br>
+
+        <label for="recovery">Recovery: <span id="recoveryValue">5.0</span></label><br>
+        <input type="range" id="recovery" name="recovery" min="1.0" max="10.0" step="0.1" value="5.0" oninput="updateOutput(this, 'recoveryValue')"><br>
+    </form>
+</section>
+{{/if}}
+
+    {{#if isEdge}}
+<section>
+    <h3>Scout the Player (EDGE)</h3>
+    <form>
+        <label for="purePassRushAbility">Pure Pass Rush Ability: <span id="purePassRushAbilityValue">5.0</span></label><br>
+        <input type="range" id="purePassRushAbility" name="purePassRushAbility" min="1.0" max="10.0" step="0.1" value="5.0" oninput="updateOutput(this, 'purePassRushAbilityValue')"><br>
+
+        <label for="runDefense">Run Defense: <span id="runDefenseValue">5.0</span></label><br>
+        <input type="range" id="runDefense" name="runDefense" min="1.0" max="10.0" step="0.1" value="5.0" oninput="updateOutput(this, 'runDefenseValue')"><br>
+
+        <label for="speed">Speed: <span id="speedValue">5.0</span></label><br>
+        <input type="range" id="speed" name="speed" min="1.0" max="10.0" step="0.1" value="5.0" oninput="updateOutput(this, 'speedValue')"><br>
+
+        <label for="agility">Agility: <span id="agilityValue">5.0</span></label><br>
+        <input type="range" id="agility" name="agility" min="1.0" max="10.0" step="0.1" value="5.0" oninput="updateOutput(this, 'agilityValue')"><br>
+
+        <label for="bend">Bend: <span id="bendValue">5.0</span></label><br>
+        <input type="range" id="bend" name="bend" min="1.0" max="10.0" step="0.1" value="5.0" oninput="updateOutput(this, 'bendValue')"><br>
+
+        <label for="strength">Strength: <span id="strengthValue">5.0</span></label><br>
+        <input type="range" id="strength" name="strength" min="1.0" max="10.0" step="0.1" value="5.0" oninput="updateOutput(this, 'strengthValue')"><br>
+
+        <label for="blockShedding">Block Shedding: <span id="blockSheddingValue">5.0</span></label><br>
+        <input type="range" id="blockShedding" name="blockShedding" min="1.0" max="10.0" step="0.1" value="5.0" oninput="updateOutput(this, 'blockSheddingValue')"><br>
+
+        <label for="tackling">Tackling: <span id="tacklingValue">5.0</span></label><br>
+        <input type="range" id="tackling" name="tackling" min="1.0" max="10.0" step="0.1" value="5.0" oninput="updateOutput(this, 'tacklingValue')"><br>
+
+        <label for="awareness">Awareness: <span id="awarenessValue">5.0</span></label><br>
+        <input type="range" id="awareness" name="awareness" min="1.0" max="10.0" step="0.1" value="5.0" oninput="updateOutput(this, 'awarenessValue')"><br>
+
+        <label for="handUsage">Hand Usage: <span id="handUsageValue">5.0</span></label><br>
+        <input type="range" id="handUsage" name="handUsage" min="1.0" max="10.0" step="0.1" value="5.0" oninput="updateOutput(this, 'handUsageValue')"><br>
+
+        <label for="leverage">Leverage: <span id="leverageValue">5.0</span></label><br>
+        <input type="range" id="leverage" name="leverage" min="1.0" max="10.0" step="0.1" value="5.0" oninput="updateOutput(this, 'leverageValue')"><br>
+
+        <label for="physicality">Physicality: <span id="physicalityValue">5.0</span></label><br>
+        <input type="range" id="physicality" name="physicality" min="1.0" max="10.0" step="0.1" value="5.0" oninput="updateOutput(this, 'physicalityValue')"><br>
+
+        <label for="stamina">Stamina: <span id="staminaValue">5.0</span></label><br>
+        <input type="range" id="stamina" name="stamina" min="1.0" max="10.0" step="0.1" value="5.0" oninput="updateOutput(this, 'staminaValue')"><br>
+
+        <label for="burst">Burst: <span id="burstValue">5.0</span></label><br>
+        <input type="range" id="burst" name="burst" min="1.0" max="10.0" step="0.1" value="5.0" oninput="updateOutput(this, 'burstValue')"><br>
+
+        <label for="playRecognition">Play Recognition: <span id="playRecognitionValue">5.0</span></label><br>
+        <input type="range" id="playRecognition" name="playRecognition" min="1.0" max="10.0" step="0.1" value="5.0" oninput="updateOutput(this, 'playRecognitionValue')"><br>
+    </form>
+</section>
+{{/if}}
+    
     {{#if isCornerback}}
     <section>
-        <h3>Scout the Player</h3>
-        <form>
-            <label for="speed">Speed: <span id="speedValue">5.0</span></label><br>
-            <input type="range" id="speed" name="speed" min="1.0" max="10.0" step="0.1" value="5.0" oninput="updateOutput(this, 'speedValue')"><br>
+    <h3>Scout the Player (Cornerback)</h3>
+    <form>
+        <label for="speed">Speed: <span id="speedValue">5.0</span></label><br>
+        <input type="range" id="speed" name="speed" min="1.0" max="10.0" step="0.1" value="5.0" oninput="updateOutput(this, 'speedValue')"><br>
 
-            <label for="quickness">Quickness: <span id="quicknessValue">5.0</span></label><br>
-            <input type="range" id="quickness" name="quickness" min="1.0" max="10.0" step="0.1" value="5.0" oninput="updateOutput(this, 'quicknessValue')"><br>
+        <label for="agility">Agility: <span id="agilityValue">5.0</span></label><br>
+        <input type="range" id="agility" name="agility" min="1.0" max="10.0" step="0.1" value="5.0" oninput="updateOutput(this, 'agilityValue')"><br>
 
-            <label for="changeOfDirection">Change of Direction: <span id="changeOfDirectionValue">5.0</span></label><br>
-            <input type="range" id="changeOfDirection" name="changeOfDirection" min="1.0" max="10.0" step="0.1" value="5.0" oninput="updateOutput(this, 'changeOfDirectionValue')"><br>
+        <label for="coverageSkills">Coverage Skills: <span id="coverageSkillsValue">5.0</span></label><br>
+        <input type="range" id="coverageSkills" name="coverageSkills" min="1.0" max="10.0" step="0.1" value="5.0" oninput="updateOutput(this, 'coverageSkillsValue')"><br>
 
-            <label for="strength">Strength: <span id="strengthValue">5.0</span></label><br>
-            <input type="range" id="strength" name="strength" min="1.0" max="10.0" step="0.1" value="5.0" oninput="updateOutput(this, 'strengthValue')"><br>
+        <label for="ballSkills">Ball Skills: <span id="ballSkillsValue">5.0</span></label><br>
+        <input type="range" id="ballSkills" name="ballSkills" min="1.0" max="10.0" step="0.1" value="5.0" oninput="updateOutput(this, 'ballSkillsValue')"><br>
 
-            <label for="explosiveness">Explosiveness: <span id="explosivenessValue">5.0</span></label><br>
-            <input type="range" id="explosiveness" name="explosiveness" min="1.0" max="10.0" step="0.1" value="5.0" oninput="updateOutput(this, 'explosivenessValue')"><br>
+        <label for="awareness">Awareness: <span id="awarenessValue">5.0</span></label><br>
+        <input type="range" id="awareness" name="awareness" min="1.0" max="10.0" step="0.1" value="5.0" oninput="updateOutput(this, 'awarenessValue')"><br>
 
-            <label for="balance">Balance/Body Control: <span id="balanceValue">5.0</span></label><br>
-            <input type="range" id="balance" name="balance" min="1.0" max="10.0" step="0.1" value="5.0" oninput="updateOutput(this, 'balanceValue')"><br>
+        <label for="tackling">Tackling: <span id="tacklingValue">5.0</span></label><br>
+        <input type="range" id="tackling" name="tackling" min="1.0" max="10.0" step="0.1" value="5.0" oninput="updateOutput(this, 'tacklingValue')"><br>
 
-            <label for="footballIQ">Football IQ: <span id="footballIQValue">5.0</span></label><br>
-            <input type="range" id="footballIQ" name="footballIQ" min="1.0" max="10.0" step="0.1" value="5.0" oninput="updateOutput(this, 'footballIQValue')"><br>
+        <label for="pressCoverage">Press Coverage: <span id="pressCoverageValue">5.0</span></label><br>
+        <input type="range" id="pressCoverage" name="pressCoverage" min="1.0" max="10.0" step="0.1" value="5.0" oninput="updateOutput(this, 'pressCoverageValue')"><br>
 
-            <label for="effortMotor">Effort/Motor: <span id="effortMotorValue">5.0</span></label><br>
-            <input type="range" id="effortMotor" name="effortMotor" min="1.0" max="10.0" step="0.1" value="5.0" oninput="updateOutput(this, 'effortMotorValue')"><br>
+        <label for="zoneCoverage">Zone Coverage: <span id="zoneCoverageValue">5.0</span></label><br>
+        <input type="range" id="zoneCoverage" name="zoneCoverage" min="1.0" max="10.0" step="0.1" value="5.0" oninput="updateOutput(this, 'zoneCoverageValue')"><br>
 
-            <label for="versatility">Versatility: <span id="versatilityValue">5.0</span></label><br>
-            <input type="range" id="versatility" name="versatility" min="1.0" max="10.0" step="0.1" value="5.0" oninput="updateOutput(this, 'versatilityValue')"><br>
+        <label for="manCoverage">Man Coverage: <span id="manCoverageValue">5.0</span></label><br>
+        <input type="range" id="manCoverage" name="manCoverage" min="1.0" max="10.0" step="0.1" value="5.0" oninput="updateOutput(this, 'manCoverageValue')"><br>
 
-            <label for="instincts">Instincts: <span id="instinctsValue">5.0</span></label><br>
-            <input type="range" id="instincts" name="instincts" min="1.0" max="10.0" step="0.1" value="5.0" oninput="updateOutput(this, 'instinctsValue')"><br>
-        </form>
-    </section>
+        <label for="recoverySpeed">Recovery Speed: <span id="recoverySpeedValue">5.0</span></label><br>
+        <input type="range" id="recoverySpeed" name="recoverySpeed" min="1.0" max="10.0" step="0.1" value="5.0" oninput="updateOutput(this, 'recoverySpeedValue')"><br>
+
+        <label for="footwork">Footwork: <span id="footworkValue">5.0</span></label><br>
+        <input type="range" id="footwork" name="footwork" min="1.0" max="10.0" step="0.1" value="5.0" oninput="updateOutput(this, 'footworkValue')"><br>
+
+        <label for="playRecognition">Play Recognition: <span id="playRecognitionValue">5.0</span></label><br>
+        <input type="range" id="playRecognition" name="playRecognition" min="1.0" max="10.0" step="0.1" value="5.0" oninput="updateOutput(this, 'playRecognitionValue')"><br>
+
+        <label for="reactionTime">Reaction Time: <span id="reactionTimeValue">5.0</span></label><br>
+        <input type="range" id="reactionTime" name="reactionTime" min="1.0" max="10.0" step="0.1" value="5.0" oninput="updateOutput(this, 'reactionTimeValue')"><br>
+
+        <label for="physicality">Physicality: <span id="physicalityValue">5.0</span></label><br>
+        <input type="range" id="physicality" name="physicality" min="1.0" max="10.0" step="0.1" value="5.0" oninput="updateOutput(this, 'physicalityValue')"><br>
+
+        <label for="hipFluidity">Hip Fluidity: <span id="hipFluidityValue">5.0</span></label><br>
+        <input type="range" id="hipFluidity" name="hipFluidity" min="1.0" max="10.0" step="0.1" value="5.0" oninput="updateOutput(this, 'hipFluidityValue')"><br>
+    </form>
+</section>
     {{/if}}
+    
+    {{#if isLinebacker}}
+    <section>
+    <h3>Scout the Player (Linebacker)</h3>
+    <form>
+        <label for="tackling">Tackling: <span id="tacklingValue">5.0</span></label><br>
+        <input type="range" id="tackling" name="tackling" min="1.0" max="10.0" step="0.1" value="5.0" oninput="updateOutput(this, 'tacklingValue')"><br>
+
+        <label for="coverageSkills">Coverage Skills: <span id="coverageSkillsValue">5.0</span></label><br>
+        <input type="range" id="coverageSkills" name="coverageSkills" min="1.0" max="10.0" step="0.1" value="5.0" oninput="updateOutput(this, 'coverageSkillsValue')"><br>
+
+        <label for="speed">Speed: <span id="speedValue">5.0</span></label><br>
+        <input type="range" id="speed" name="speed" min="1.0" max="10.0" step="0.1" value="5.0" oninput="updateOutput(this, 'speedValue')"><br>
+
+        <label for="agility">Agility: <span id="agilityValue">5.0</span></label><br>
+        <input type="range" id="agility" name="agility" min="1.0" max="10.0" step="0.1" value="5.0" oninput="updateOutput(this, 'agilityValue')"><br>
+
+        <label for="playRecognition">Play Recognition: <span id="playRecognitionValue">5.0</span></label><br>
+        <input type="range" id="playRecognition" name="playRecognition" min="1.0" max="10.0" step="0.1" value="5.0" oninput="updateOutput(this, 'playRecognitionValue')"><br>
+
+        <label for="blockShedding">Block Shedding: <span id="blockSheddingValue">5.0</span></label><br>
+        <input type="range" id="blockShedding" name="blockShedding" min="1.0" max="10.0" step="0.1" value="5.0" oninput="updateOutput(this, 'blockSheddingValue')"><br>
+
+        <label for="awareness">Awareness: <span id="awarenessValue">5.0</span></label><br>
+        <input type="range" id="awareness" name="awareness" min="1.0" max="10.0" step="0.1" value="5.0" oninput="updateOutput(this, 'awarenessValue')"><br>
+
+        <label for="physicality">Physicality: <span id="physicalityValue">5.0</span></label><br>
+        <input type="range" id="physicality" name="physicality" min="1.0" max="10.0" step="0.1" value="5.0" oninput="updateOutput(this, 'physicalityValue')"><br>
+
+        <label for="reactionTime">Reaction Time: <span id="reactionTimeValue">5.0</span></label><br>
+        <input type="range" id="reactionTime" name="reactionTime" min="1.0" max="10.0" step="0.1" value="5.0" oninput="updateOutput(this, 'reactionTimeValue')"><br>
+
+        <label for="passRushAbility">Pass Rush Ability: <span id="passRushAbilityValue">5.0</span></label><br>
+        <input type="range" id="passRushAbility" name="passRushAbility" min="1.0" max="10.0" step="0.1" value="5.0" oninput="updateOutput(this, 'passRushAbilityValue')"><br>
+
+        <label for="runDefense">Run Defense: <span id="runDefenseValue">5.0</span></label><br>
+        <input type="range" id="runDefense" name="runDefense" min="1.0" max="10.0" step="0.1" value="5.0" oninput="updateOutput(this, 'runDefenseValue')"><br>
+
+        <label for="sidelineToSidelineRange">Sideline-to-Sideline Range: <span id="sidelineToSidelineRangeValue">5.0</span></label><br>
+        <input type="range" id="sidelineToSidelineRange" name="sidelineToSidelineRange" min="1.0" max="10.0" step="0.1" value="5.0" oninput="updateOutput(this, 'sidelineToSidelineRangeValue')"><br>
+
+        <label for="blitzing">Blitzing: <span id="blitzingValue">5.0</span></label><br>
+        <input type="range" id="blitzing" name="blitzing" min="1.0" max="10.0" step="0.1" value="5.0" oninput="updateOutput(this, 'blitzingValue')"><br>
+
+        <label for="communication">Communication: <span id="communicationValue">5.0</span></label><br>
+        <input type="range" id="communication" name="communication" min="1.0" max="10.0" step="0.1" value="5.0" oninput="updateOutput(this, 'communicationValue')"><br>
+
+        <label for="stamina">Stamina: <span id="staminaValue">5.0</span></label><br>
+        <input type="range" id="stamina" name="stamina" min="1.0" max="10.0" step="0.1" value="5.0" oninput="updateOutput(this, 'staminaValue')"><br>
+    </form>
+</section>
+    {{/if}}
+
+    {{#if isDefensiveInterior}}
+<section>
+    <h3>Scout the Player (Defensive Interior)</h3>
+    <form>
+        <label for="runDefense">Run Defense: <span id="runDefenseValue">5.0</span></label><br>
+        <input type="range" id="runDefense" name="runDefense" min="1.0" max="10.0" step="0.1" value="5.0" oninput="updateOutput(this, 'runDefenseValue')"><br>
+
+        <label for="passRushAbility">Pass Rush Ability: <span id="passRushAbilityValue">5.0</span></label><br>
+        <input type="range" id="passRushAbility" name="passRushAbility" min="1.0" max="10.0" step="0.1" value="5.0" oninput="updateOutput(this, 'passRushAbilityValue')"><br>
+
+        <label for="strength">Strength: <span id="strengthValue">5.0</span></label><br>
+        <input type="range" id="strength" name="strength" min="1.0" max="10.0" step="0.1" value="5.0" oninput="updateOutput(this, 'strengthValue')"><br>
+
+        <label for="blockShedding">Block Shedding: <span id="blockSheddingValue">5.0</span></label><br>
+        <input type="range" id="blockShedding" name="blockShedding" min="1.0" max="10.0" step="0.1" value="5.0" oninput="updateOutput(this, 'blockSheddingValue')"><br>
+
+        <label for="leverage">Leverage: <span id="leverageValue">5.0</span></label><br>
+        <input type="range" id="leverage" name="leverage" min="1.0" max="10.0" step="0.1" value="5.0" oninput="updateOutput(this, 'leverageValue')"><br>
+
+        <label for="awareness">Awareness: <span id="awarenessValue">5.0</span></label><br>
+        <input type="range" id="awareness" name="awareness" min="1.0" max="10.0" step="0.1" value="5.0" oninput="updateOutput(this, 'awarenessValue')"><br>
+
+        <label for="stamina">Stamina: <span id="staminaValue">5.0</span></label><br>
+        <input type="range" id="stamina" name="stamina" min="1.0" max="10.0" step="0.1" value="5.0" oninput="updateOutput(this, 'staminaValue')"><br>
+
+        <label for="physicality">Physicality: <span id="physicalityValue">5.0</span></label><br>
+        <input type="range" id="physicality" name="physicality" min="1.0" max="10.0" step="0.1" value="5.0" oninput="updateOutput(this, 'physicalityValue')"><br>
+
+        <label for="quickness">Quickness: <span id="quicknessValue">5.0</span></label><br>
+        <input type="range" id="quickness" name="quickness" min="1.0" max="10.0" step="0.1" value="5.0" oninput="updateOutput(this, 'quicknessValue')"><br>
+
+        <label for="agility">Agility: <span id="agilityValue">5.0</span></label><br>
+        <input type="range" id="agility" name="agility" min="1.0" max="10.0" step="0.1" value="5.0" oninput="updateOutput(this, 'agilityValue')"><br>
+
+        <label for="tackling">Tackling: <span id="tacklingValue">5.0</span></label><br>
+        <input type="range" id="tackling" name="tackling" min="1.0" max="10.0" step="0.1" value="5.0" oninput="updateOutput(this, 'tacklingValue')"><br>
+
+        <label for="handUsage">Hand Usage: <span id="handUsageValue">5.0</span></label><br>
+        <input type="range" id="handUsage" name="handUsage" min="1.0" max="10.0" step="0.1" value="5.0" oninput="updateOutput(this, 'handUsageValue')"><br>
+
+        <label for="playRecognition">Play Recognition: <span id="playRecognitionValue">5.0</span></label><br>
+        <input type="range" id="playRecognition" name="playRecognition" min="1.0" max="10.0" step="0.1" value="5.0" oninput="updateOutput(this, 'playRecognitionValue')"><br>
+
+        <label for="burst">Burst: <span id="burstValue">5.0</span></label><br>
+        <input type="range" id="burst" name="burst" min="1.0" max="10.0" step="0.1" value="5.0" oninput="updateOutput(this, 'burstValue')"><br>
+
+        <label for="anchor">Anchor: <span id="anchorValue">5.0</span></label><br>
+        <input type="range" id="anchor" name="anchor" min="1.0" max="10.0" step="0.1" value="5.0" oninput="updateOutput(this, 'anchorValue')"><br>
+    </form>
+</section>
+{{/if}}
+
+    {{#if isSafety}}
+<section>
+    <h3>Scout the Player (Safety)</h3>
+    <form>
+        <label for="coverageSkills">Coverage Skills: <span id="coverageSkillsValue">5.0</span></label><br>
+        <input type="range" id="coverageSkills" name="coverageSkills" min="1.0" max="10.0" step="0.1" value="5.0" oninput="updateOutput(this, 'coverageSkillsValue')"><br>
+
+        <label for="tackling">Tackling: <span id="tacklingValue">5.0</span></label><br>
+        <input type="range" id="tackling" name="tackling" min="1.0" max="10.0" step="0.1" value="5.0" oninput="updateOutput(this, 'tacklingValue')"><br>
+
+        <label for="speed">Speed: <span id="speedValue">5.0</span></label><br>
+        <input type="range" id="speed" name="speed" min="1.0" max="10.0" step="0.1" value="5.0" oninput="updateOutput(this, 'speedValue')"><br>
+
+        <label for="awareness">Awareness: <span id="awarenessValue">5.0</span></label><br>
+        <input type="range" id="awareness" name="awareness" min="1.0" max="10.0" step="0.1" value="5.0" oninput="updateOutput(this, 'awarenessValue')"><br>
+
+        <label for="playRecognition">Play Recognition: <span id="playRecognitionValue">5.0</span></label><br>
+        <input type="range" id="playRecognition" name="playRecognition" min="1.0" max="10.0" step="0.1" value="5.0" oninput="updateOutput(this, 'playRecognitionValue')"><br>
+
+        <label for="agility">Agility: <span id="agilityValue">5.0</span></label><br>
+        <input type="range" id="agility" name="agility" min="1.0" max="10.0" step="0.1" value="5.0" oninput="updateOutput(this, 'agilityValue')"><br>
+
+        <label for="ballSkills">Ball Skills: <span id="ballSkillsValue">5.0</span></label><br>
+        <input type="range" id="ballSkills" name="ballSkills" min="1.0" max="10.0" step="0.1" value="5.0" oninput="updateOutput(this, 'ballSkillsValue')"><br>
+
+        <label for="physicality">Physicality: <span id="physicalityValue">5.0</span></label><br>
+        <input type="range" id="physicality" name="physicality" min="1.0" max="10.0" step="0.1" value="5.0" oninput="updateOutput(this, 'physicalityValue')"><br>
+
+        <label for="reactionTime">Reaction Time: <span id="reactionTimeValue">5.0</span></label><br>
+        <input type="range" id="reactionTime" name="reactionTime" min="1.0" max="10.0" step="0.1" value="5.0" oninput="updateOutput(this, 'reactionTimeValue')"><br>
+
+        <label for="zoneCoverage">Zone Coverage: <span id="zoneCoverageValue">5.0</span></label><br>
+        <input type="range" id="zoneCoverage" name="zoneCoverage" min="1.0" max="10.0" step="0.1" value="5.0" oninput="updateOutput(this, 'zoneCoverageValue')"><br>
+
+        <label for="manCoverage">Man Coverage: <span id="manCoverageValue">5.0</span></label><br>
+        <input type="range" id="manCoverage" name="manCoverage" min="1.0" max="10.0" step="0.1" value="5.0" oninput="updateOutput(this, 'manCoverageValue')"><br>
+
+        <label for="range">Range: <span id="rangeValue">5.0</span></label><br>
+        <input type="range" id="range" name="range" min="1.0" max="10.0" step="0.1" value="5.0" oninput="updateOutput(this, 'rangeValue')"><br>
+
+        <label for="communication">Communication: <span id="communicationValue">5.0</span></label><br>
+        <input type="range" id="communication" name="communication" min="1.0" max="10.0" step="0.1" value="5.0" oninput="updateOutput(this, 'communicationValue')"><br>
+
+        <label for="stamina">Stamina: <span id="staminaValue">5.0</span></label><br>
+        <input type="range" id="stamina" name="stamina" min="1.0" max="10.0" step="0.1" value="5.0" oninput="updateOutput(this, 'staminaValue')"><br>
+
+        <label for="blitzing">Blitzing: <span id="blitzingValue">5.0</span></label><br>
+        <input type="range" id="blitzing" name="blitzing" min="1.0" max="10.0" step="0.1" value="5.0" oninput="updateOutput(this, 'blitzingValue')"><br>
+    </form>
+</section>
+{{/if}}
+
 </body>
 </html>
