@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{name}} - Scouting Report</title>
     <link rel="stylesheet" href="../style.css">
-    function updateOutput(slider, outputId) {
+    <script>
+        function updateOutput(slider, outputId) {
             document.getElementById(outputId).innerText = slider.value;
         }
 
@@ -27,18 +28,160 @@
 
             const positions = ['Quarterback', 'RunningBack', 'WideReceiver', 'OffensiveTackle', 'InteriorOffensiveLineman', 'Edge', 'Cornerback', 'Linebacker', 'DefensiveInterior', 'Safety'];
             positions.forEach(position => {
-                const lowerPosition = position.toLowerCase();
-                const isPosition = player.position.toLowerCase() === lowerPosition;
-                const positionSection = document.querySelectorAll(`.position-section[data-position='${lowerPosition}']`);
-                positionSection.forEach(section => {
-                    section.style.display = isPosition ? 'block' : 'none';
-                });
+                const isPosition = player.position.toLowerCase() === position.toLowerCase();
+                template = template.replace(new RegExp(`{{#if is${position}}}`, 'g'), isPosition ? '' : '<!--')
+                                   .replace(new RegExp(`{{/if}}`, 'g'), isPosition ? '' : '-->');
             });
 
             document.getElementById('player-profile').innerHTML = template;
         }
 
         document.addEventListener('DOMContentLoaded', loadPlayerTemplate);
+    </script>
+</head>
+<body>
+    <header>
+        <h1>{{name}}</h1>
+        <h2>{{position}} - {{college}}</h2>
+    </header>
+    <section>
+        <h3>Scouting Report</h3>
+        <p>{{scouting_report}}</p>
+    </section>
+
+    <div id="player-profile"></div>
+
+    <script type="text/html" id="player-template">
+        <!-- Include the content of player_template.html here -->
+        {{#if isQuarterback}}
+        <section>
+            <h3>Scout the Player (Quarterback)</h3>
+            {{#if isQuarterback}}
+    <section>
+        <h3>Scout the Player (Quarterback)</h3>
+        <!-- Accuracy Slider -->
+        <label for="accuracy">Accuracy: <span id="accuracyValue">5.0</span></label><br>
+        <input type="range" id="accuracy" name="accuracy" min="1.0" max="10.0" step="0.1" value="5.0" oninput="updateOutput(this, 'accuracyValue')"><br>
+
+        <!-- Quarterback-Specific Traits -->
+        <label for="armStrength">Arm Strength: <span id="armStrengthValue">5.0</span></label><br>
+        <input type="range" id="armStrength" name="armStrength" min="1.0" max="10.0" step="0.1" value="5.0" oninput="updateOutput(this, 'armStrengthValue')"><br>
+
+        <label for="throwingMechanics">Throwing Mechanics: <span id="throwingMechanicsValue">5.0</span></label><br>
+        <input type="range" id="throwingMechanics" name="throwingMechanics" min="1.0" max="10.0" step="0.1" value="5.0" oninput="updateOutput(this, 'throwingMechanicsValue')"><br>
+
+        <label for="release">Release: <span id="releaseValue">5.0</span></label><br>
+        <input type="range" id="release" name="release" min="1.0" max="10.0" step="0.1" value="5.0" oninput="updateOutput(this, 'releaseValue')"><br>
+
+        <label for="speedAgility">Speed/Agility: <span id="speedAgilityValue">5.0</span></label><br>
+        <input type="range" id="speedAgility" name="speedAgility" min="1.0" max="10.0" step="0.1" value="5.0" oninput="updateOutput(this, 'speedAgilityValue')"><br>
+
+        <label for="shortAccuracy">Short Accuracy: <span id="shortAccuracyValue">5.0</span></label><br>
+        <input type="range" id="shortAccuracy" name="shortAccuracy" min="1.0" max="10.0" step="0.1" value="5.0" oninput="updateOutput(this, 'shortAccuracyValue')"><br>
+
+        <label for="intermediateAccuracy">Intermediate Accuracy: <span id="intermediateAccuracyValue">5.0</span></label><br>
+        <input type="range" id="intermediateAccuracy" name="intermediateAccuracy" min="1.0" max="10.0" step="0.1" value="5.0" oninput="updateOutput(this, 'intermediateAccuracyValue')"><br>
+
+        <label for="deepAccuracy">Deep Accuracy: <span id="deepAccuracyValue">5.0</span></label><br>
+        <input type="range" id="deepAccuracy" name="deepAccuracy" min="1.0" max="10.0" step="0.1" value="5.0" oninput="updateOutput(this, 'deepAccuracyValue')"><br>
+
+        <label for="decisionMaking">Decision-Making: <span id="decisionMakingValue">5.0</span></label><br>
+        <input type="range" id="decisionMaking" name="decisionMaking" min="1.0" max="10.0" step="0.1" value="5.0" oninput="updateOutput(this, 'decisionMakingValue')"><br>
+
+        <label for="anticipation">Anticipation: <span id="anticipationValue">5.0</span></label><br>
+        <input type="range" id="anticipation" name="anticipation" min="1.0" max="10.0" step="0.1" value="5.0" oninput="updateOutput(this, 'anticipationValue')"><br>
+
+        <label for="timing">Timing: <span id="timingValue">5.0</span></label><br>
+        <input type="range" id="timing" name="timing" min="1.0" max="10.0" step="0.1" value="5.0" oninput="updateOutput(this, 'timingValue')"><br>
+
+        <label for="touch">Touch: <span id="touchValue">5.0</span></label><br>
+        <input type="range" id="touch" name="touch" min="1.0" max="10.0" step="0.1" value="5.0" oninput="updateOutput(this, 'touchValue')"><br>
+
+        <label for="simpleProcessing">Simple Processing: <span id="simpleProcessingValue">5.0</span></label><br>
+        <input type="range" id="simpleProcessing" name="simpleProcessing" min="1.0" max="10.0" step="0.1" value="5.0" oninput="updateOutput(this, 'simpleProcessingValue')"><br>
+
+        <label for="advancedProcessing">Advanced Processing: <span id="advancedProcessingValue">5.0</span></label><br>
+        <input type="range" id="advancedProcessing" name="advancedProcessing" min="1.0" max="10.0" step="0.1" value="5.0" oninput="updateOutput(this, 'advancedProcessingValue')"><br>
+
+        <label for="pocketPresence">Pocket Presence: <span id="pocketPresenceValue">5.0</span></label><br>
+        <input type="range" id="pocketPresence" name="pocketPresence" min="1.0" max="10.0" step="0.1" value="5.0" oninput="updateOutput(this, 'pocketPresenceValue')"><br>
+
+        <label for="pocketPressure">Pocket Pressure: <span id="pocketPressureValue">5.0</span></label><br>
+        <input type="range" id="pocketPressure" name="pocketPressure" min="1.0" max="10.0" step="0.1" value="5.0" oninput="updateOutput(this, 'pocketPressureValue')"><br>
+
+        <label for="footwork">Footwork: <span id="footworkValue">5.0</span></label><br>
+        <input type="range" id="footwork" name="footwork" min="1.0" max="10.0" step="0.1" value="5.0" oninput="updateOutput(this, 'footworkValue')"><br>
+
+        <label for="throwingOnTheRun">Throwing on the Run: <span id="throwingOnTheRunValue">5.0</span></label><br>
+        <input type="range" id="throwingOnTheRun" name="throwingOnTheRun" min="1.0" max="10.0" step="0.1" value="5.0" oninput="updateOutput(this, 'throwingOnTheRunValue')"><br>
+
+        <label for="progressions">Progressions: <span id="progressionsValue">5.0</span></label><br>
+        <input type="range" id="progressions" name="progressions" min="1.0" max="10.0" step="0.1" value="5.0" oninput="updateOutput(this, 'progressionsValue')"><br>
+
+        <label for="redZoneProcessing">RedZone Processing: <span id="redZoneProcessingValue">5.0</span></label><br>
+        <input type="range" id="redZoneProcessing" name="redZoneProcessing" min="1.0" max="10.0" step="0.1" value="5.0" oninput="updateOutput(this, 'redZoneProcessingValue')"><br>
+    </form>
+</section>
+    {{/if}}
+        </section>
+        {{/if}}
+        {{#if isRunningBack}}
+        <section>
+            <h3>Scout the Player (Running Back)</h3>
+             {{#if isRunningBack}}
+    <section>
+    <h3>Scout the Player (Running Back)</h3>
+    <form>
+        <label for="speed">Speed: <span id="speedValue">5.0</span></label><br>
+        <input type="range" id="speed" name="speed" min="1.0" max="10.0" step="0.1" value="5.0" oninput="updateOutput(this, 'speedValue')"><br>
+
+        <label for="agility">Agility: <span id="agilityValue">5.0</span></label><br>
+        <input type="range" id="agility" name="agility" min="1.0" max="10.0" step="0.1" value="5.0" oninput="updateOutput(this, 'agilityValue')"><br>
+
+        <label for="vision">Vision: <span id="visionValue">5.0</span></label><br>
+        <input type="range" id="vision" name="vision" min="1.0" max="10.0" step="0.1" value="5.0" oninput="updateOutput(this, 'visionValue')"><br>
+
+        <label for="power">Power: <span id="powerValue">5.0</span></label><br>
+        <input type="range" id="power" name="power" min="1.0" max="10.0" step="0.1" value="5.0" oninput="updateOutput(this, 'powerValue')"><br>
+
+        <label for="elusiveness">Elusiveness: <span id="elusivenessValue">5.0</span></label><br>
+        <input type="range" id="elusiveness" name="elusiveness" min="1.0" max="10.0" step="0.1" value="5.0" oninput="updateOutput(this, 'elusivenessValue')"><br>
+
+        <label for="balance">Balance: <span id="balanceValue">5.0</span></label><br>
+        <input type="range" id="balance" name="balance" min="1.0" max="10.0" step="0.1" value="5.0" oninput="updateOutput(this, 'balanceValue')"><br>
+
+        <label for="acceleration">Acceleration: <span id="accelerationValue">5.0</span></label><br>
+        <input type="range" id="acceleration" name="acceleration" min="1.0" max="10.0" step="0.1" value="5.0" oninput="updateOutput(this, 'accelerationValue')"><br>
+
+        <label for="passProtection">Pass Protection: <span id="passProtectionValue">5.0</span></label><br>
+        <input type="range" id="passProtection" name="passProtection" min="1.0" max="10.0" step="0.1" value="5.0" oninput="updateOutput(this, 'passProtectionValue')"><br>
+
+        <label for="receivingAbility">Receiving Ability: <span id="receivingAbilityValue">5.0</span></label><br>
+        <input type="range" id="receivingAbility" name="receivingAbility" min="1.0" max="10.0" step="0.1" value="5.0" oninput="updateOutput(this, 'receivingAbilityValue')"><br>
+
+        <label for="burst">Burst: <span id="burstValue">5.0</span></label><br>
+        <input type="range" id="burst" name="burst" min="1.0" max="10.0" step="0.1" value="5.0" oninput="updateOutput(this, 'burstValue')"><br>
+
+        <label for="footwork">Footwork: <span id="footworkValue">5.0</span></label><br>
+        <input type="range" id="footwork" name="footwork" min="1.0" max="10.0" step="0.1" value="5.0" oninput="updateOutput(this, 'footworkValue')"><br>
+
+        <label for="toughness">Toughness: <span id="toughnessValue">5.0</span></label><br>
+        <input type="range" id="toughness" name="toughness" min="1.0" max="10.0" step="0.1" value="5.0" oninput="updateOutput(this, 'toughnessValue')"><br>
+
+        <label for="durability">Durability: <span id="durabilityValue">5.0</span></label><br>
+        <input type="range" id="durability" name="durability" min="1.0" max="10.0" step="0.1" value="5.0" oninput="updateOutput(this, 'durabilityValue')"><br>
+
+        <label for="openFieldAwareness">Open Field Awareness: <span id="openFieldAwarenessValue">5.0</span></label><br>
+        <input type="range" id="openFieldAwareness" name="openFieldAwareness" min="1.0" max="10.0" step="0.1" value="5.0" oninput="updateOutput(this, 'openFieldAwarenessValue')"><br>
+
+        <label for="ballSecurity">Ball Security: <span id="ballSecurityValue">5.0</span></label><br>
+        <input type="range" id="ballSecurity" name="ballSecurity" min="1.0" max="10.0" step="0.1" value="5.0" oninput="updateOutput(this, 'ballSecurityValue')"><br>
+    </form>
+</section>
+    {{/if}}
+        </section>
+        {{/if}}
+        <!-- Repeat for other positions -->
     </script>
 </head>
 <body>
@@ -77,7 +220,6 @@
         <p>{{scouting_report}}</p>
     </section>
 
-<!-- Conditional sections based on the position -->
     {{#if isQuarterback}}
     <section>
         <h3>Scout the Player (Quarterback)</h3>
