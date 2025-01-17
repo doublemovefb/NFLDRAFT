@@ -10,7 +10,7 @@
             document.getElementById(outputId).innerText = slider.value;
         }
 
-         function loadPlayerTemplate(player) {
+        function loadPlayerTemplate(player) {
             let template = document.getElementById('player-template').innerHTML;
 
             template = template.replace(/{{name}}/g, player.name)
@@ -52,30 +52,46 @@
     <div id="player-profile"></div>
 
     <script type="text/html" id="player-template">
-        <!DOCTYPE html>
-        <html lang="en">
-        <head>
-            <meta charset="UTF-8">
-            <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <title>{{name}} - Scouting Report</title>
-            <link rel="stylesheet" href="../style.css">
-            <script>
-                function updateOutput(slider, outputId) {
-                    document.getElementById(outputId).innerText = slider.value;
-                }
-            </script>
-        </head>
-        <body>
-            <header>
-                <h1>{{name}}</h1>
-                <h2>{{position}} - {{college}}</h2>
-            </header>
-            <section>
-                <h3>Scouting Report</h3>
-                <p>{{scouting_report}}</p>
-            </section>
+        <!-- Include the content of player_template.html here -->
+    </script>
+</head>
+<body>
+    <header>
+        <h1>{{name}}</h1>
+        <h2>{{position}} - {{college}}</h2>
+    </header>
+    <section>
+        <h3>Scouting Report</h3>
+        <p>{{scouting_report}}</p>
+    </section>
 
-    <!-- Conditional sections based on the position -->
+    <div id="player-profile"></div>
+
+    <script type="text/html" id="player-template">
+       <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{name}} - Scouting Report</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function updateOutput(slider, outputId) {
+            document.getElementById(outputId).innerText = slider.value;
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <h1>{{name}}</h1>
+        <h2>{{position}} - {{college}}</h2>
+    </header>
+    <section>
+        <h3>Scouting Report</h3>
+        <p>{{scouting_report}}</p>
+    </section>
+
+<!-- Conditional sections based on the position -->
     {{#if isQuarterback}}
     <section>
         <h3>Scout the Player (Quarterback)</h3>
