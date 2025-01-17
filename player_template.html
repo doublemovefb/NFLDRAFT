@@ -4,7 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{name}} - Scouting Report</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../style.css">
+    <script>
+        function updateOutput(slider, outputId) {
+            document.getElementById(outputId).innerText = slider.value;
+        }
+    </script>
 </head>
 <body>
     <header>
@@ -15,5 +20,41 @@
         <h3>Scouting Report</h3>
         <p>{{scouting_report}}</p>
     </section>
+    {{#if isCornerback}}
+    <section>
+        <h3>Scout the Player</h3>
+        <form>
+            <label for="speed">Speed: <span id="speedValue">5.0</span></label><br>
+            <input type="range" id="speed" name="speed" min="1.0" max="10.0" step="0.1" value="5.0" oninput="updateOutput(this, 'speedValue')"><br>
+
+            <label for="quickness">Quickness: <span id="quicknessValue">5.0</span></label><br>
+            <input type="range" id="quickness" name="quickness" min="1.0" max="10.0" step="0.1" value="5.0" oninput="updateOutput(this, 'quicknessValue')"><br>
+
+            <label for="changeOfDirection">Change of Direction: <span id="changeOfDirectionValue">5.0</span></label><br>
+            <input type="range" id="changeOfDirection" name="changeOfDirection" min="1.0" max="10.0" step="0.1" value="5.0" oninput="updateOutput(this, 'changeOfDirectionValue')"><br>
+
+            <label for="strength">Strength: <span id="strengthValue">5.0</span></label><br>
+            <input type="range" id="strength" name="strength" min="1.0" max="10.0" step="0.1" value="5.0" oninput="updateOutput(this, 'strengthValue')"><br>
+
+            <label for="explosiveness">Explosiveness: <span id="explosivenessValue">5.0</span></label><br>
+            <input type="range" id="explosiveness" name="explosiveness" min="1.0" max="10.0" step="0.1" value="5.0" oninput="updateOutput(this, 'explosivenessValue')"><br>
+
+            <label for="balance">Balance/Body Control: <span id="balanceValue">5.0</span></label><br>
+            <input type="range" id="balance" name="balance" min="1.0" max="10.0" step="0.1" value="5.0" oninput="updateOutput(this, 'balanceValue')"><br>
+
+            <label for="footballIQ">Football IQ: <span id="footballIQValue">5.0</span></label><br>
+            <input type="range" id="footballIQ" name="footballIQ" min="1.0" max="10.0" step="0.1" value="5.0" oninput="updateOutput(this, 'footballIQValue')"><br>
+
+            <label for="effortMotor">Effort/Motor: <span id="effortMotorValue">5.0</span></label><br>
+            <input type="range" id="effortMotor" name="effortMotor" min="1.0" max="10.0" step="0.1" value="5.0" oninput="updateOutput(this, 'effortMotorValue')"><br>
+
+            <label for="versatility">Versatility: <span id="versatilityValue">5.0</span></label><br>
+            <input type="range" id="versatility" name="versatility" min="1.0" max="10.0" step="0.1" value="5.0" oninput="updateOutput(this, 'versatilityValue')"><br>
+
+            <label for="instincts">Instincts: <span id="instinctsValue">5.0</span></label><br>
+            <input type="range" id="instincts" name="instincts" min="1.0" max="10.0" step="0.1" value="5.0" oninput="updateOutput(this, 'instinctsValue')"><br>
+        </form>
+    </section>
+    {{/if}}
 </body>
 </html>
