@@ -1,13 +1,8 @@
-// Filter prospects by position
-function filterProspects(position) {
-    const filteredData = prospects.filter(prospect => prospect.position === position || position === 'All');
-    populateTable(filteredData);
-}
-
 // Event listener for filter dropdown (if you have one)
 document.querySelector('#position-filter').addEventListener('change', event => {
     filterProspects(event.target.value);
 });
+
 // Full prospects data
 fetch('prospects.json')
     .then(response => response.json())
@@ -35,7 +30,6 @@ fetch('prospects.json')
         });
     })
     .catch(error => console.error('Error fetching prospects:', error));
-];
 
 // Function to populate the table
 function populateTable(data) {
@@ -47,10 +41,16 @@ function populateTable(data) {
         row.innerHTML = `
             <td>${prospect.name}</td>
             <td>${prospect.position}</td>
+            <td>${prospect.college}</td>
         `;
         prospectTable.appendChild(row);
     });
 }
 
 // Populate the table on page load
-populateTable(prospects);
+fetch('prospects.json')
+    .then(response => response.json())
+    .then(prospects => {
+        populateTable(prospects);
+    })
+    .catch(error => console.error('Error fetching prospects:', error));
