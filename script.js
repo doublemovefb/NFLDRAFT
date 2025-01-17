@@ -15,7 +15,7 @@ function displayProspects(prospects) {
 
         const nameCell = document.createElement('td');
         const nameLink = document.createElement('a');
-        nameLink.href = player.url;
+        nameLink.href = `player_template.html?name=${encodeURIComponent(player.name)}&position=${encodeURIComponent(player.position)}&college=${encodeURIComponent(player.college)}`;
         nameLink.textContent = player.name;
         nameCell.appendChild(nameLink);
 
