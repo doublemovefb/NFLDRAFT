@@ -6,11 +6,20 @@
     <title>{{name}} - Scouting Report</title>
     <link rel="stylesheet" href="../style.css">
     <script>
+        <script>
         function updateOutput(slider, outputId) {
             document.getElementById(outputId).innerText = slider.value;
         }
 
-        function loadPlayerTemplate(player) {
+        function loadPlayerTemplate() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const player = {
+                name: urlParams.get('name'),
+                position: urlParams.get('position'),
+                college: urlParams.get('college'),
+                scouting_report: "This player is very fast and agile..." // Replace with actual data if available
+            };
+
             let template = document.getElementById('player-template').innerHTML;
 
             template = template.replace(/{{name}}/g, player.name)
@@ -28,15 +37,7 @@
             document.getElementById('player-profile').innerHTML = template;
         }
 
-        document.addEventListener('DOMContentLoaded', function() {
-            const examplePlayer = {
-                name: "John Doe",
-                position: "Quarterback",
-                college: "Some College",
-                scouting_report: "This player is very fast and agile..."
-            };
-            loadPlayerTemplate(examplePlayer);
-        });
+        document.addEventListener('DOMContentLoaded', loadPlayerTemplate);
     </script>
 </head>
 <body>
@@ -624,9 +625,6 @@
 
         <label for="blitzing">Blitzing: <span id="blitzingValue">5.0</span></label><br>
         <input type="range" id="blitzing" name="blitzing" min="1.0" max="10.0" step="0.1" value="5.0" oninput="updateOutput(this, 'blitzingValue')"><br>
-    </form>
-</section>
-{{/if}}
-
+    </script>
 </body>
 </html>
