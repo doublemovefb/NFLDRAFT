@@ -9,44 +9,32 @@ document.querySelector('#position-filter').addEventListener('change', event => {
     filterProspects(event.target.value);
 });
 // Full prospects data
-const prospects = [
-    { name: "Travis Hunter", position: "Cornerback" },
-    { name: "Will Johnson", position: "Cornerback" },
-    { name: "Maxwell Hairston", position: "Cornerback" },
-    { name: "Shavon Revel Jr.", position: "Cornerback" },
-    { name: "Benjamin Morrison", position: "Cornerback" },
-    { name: "Jahdae Barron", position: "Cornerback" },
-    { name: "Trey Amos", position: "Cornerback" },
-    { name: "Davison Igbinosun", position: "Cornerback" },
-    { name: "Denzel Burke", position: "Cornerback" },
-    { name: "Jermari Harris", position: "Cornerback" },
-    { name: "Zy Alexander", position: "Cornerback" },
-    { name: "Kenneth Grant", position: "Defensive Line" },
-    { name: "Tyleik Williams", position: "Defensive Line" },
-    { name: "Deone Walker", position: "Defensive Line" },
-    { name: "Nazir Stackhouse", position: "Defensive Line" },
-    { name: "Mason Graham", position: "Defensive Line" },
-    { name: "Derrick Harmon", position: "Defensive Line" },
-    { name: "Walter Nolen", position: "Defensive Line" },
-    { name: "Alfred Collins", position: "Defensive Line" },
-    { name: "Shemar Turner", position: "Defensive Line" },
-    { name: "Omarr Norman-Lott", position: "Defensive Line" },
-    { name: "Howard Cross III", position: "Defensive Line" },
-    { name: "Nic Scourton", position: "Defensive Line" },
-    { name: "Landon Jackson", position: "Defensive Line" },
-    { name: "Jordan Burch", position: "Defensive Line" },
-    { name: "Abdul Carter", position: "Edge" },
-    { name: "James Pearce Jr.", position: "Edge" },
-    { name: "Mykel Williams", position: "Edge" },
-    { name: "J.T. Tuimoloau", position: "Edge" },
-    { name: "Shemar Stewart", position: "Edge" },
-    { name: "Mike Green", position: "Edge" },
-    { name: "Kyle Kennard", position: "Edge" },
-    { name: "Princely Umanmielen", position: "Edge" },
-    { name: "Bradyn Swinson", position: "Edge" },
-    { name: "Dani Dennis-Sutton", position: "Edge" },
-    { name: "Jack Sawyer", position: "Edge" },
-    { name: "Antwaun Powell-Ryland", position: "Edge" }
+fetch('prospects.json')
+    .then(response => response.json())
+    .then(prospects => {
+        const customBoardData = document.getElementById('custom-board-data');
+        const prospectData = document.getElementById('prospect-data');
+
+        prospects.forEach(prospect => {
+            const row = document.createElement('tr');
+            const nameCell = document.createElement('td');
+            const positionCell = document.createElement('td');
+            const collegeCell = document.createElement('td');
+
+            nameCell.textContent = prospect.name;
+            positionCell.textContent = prospect.position;
+            collegeCell.textContent = prospect.college;
+
+            row.appendChild(nameCell);
+            row.appendChild(positionCell);
+            row.appendChild(collegeCell);
+
+            // Add the row to both tables
+            customBoardData.appendChild(row.cloneNode(true));
+            prospectData.appendChild(row);
+        });
+    })
+    .catch(error => console.error('Error fetching prospects:', error));
 ];
 
 // Function to populate the table
