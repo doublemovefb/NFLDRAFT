@@ -3,58 +3,151 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NFL Draft Database</title>
-    <link rel="stylesheet" href="style.css">
+    <title>NFL Draft Prospect Grading System</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+        }
+        header {
+            background-color: #007bff;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+        }
+        .container {
+            width: 90%;
+            margin: 20px auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        h1, h2 {
+            text-align: center;
+        }
+        .big-board {
+            margin-bottom: 40px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            text-align: center;
+            padding: 10px;
+        }
+        th {
+            background-color: #007bff;
+            color: white;
+        }
+        button {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
 </head>
 <body>
-    <!-- Navigation Header -->
     <header>
-        <nav>
-            <ul style="display: flex; list-style: none; background-color: #007bff; padding: 10px; margin: 0;">
-                <li style="margin-right: 20px;">
-                    <a href="#custom-board" style="color: white; text-decoration: none; font-size: 18px;">Your Big Board</a>
-                </li>
-                <li>
-                    <a href="#prospect-list" style="color: white; text-decoration: none; font-size: 18px;">Scout Prospects</a>
-                </li>
-            </ul>
-        </nav>
+        <h1>NFL Draft Prospect Grading System</h1>
     </header>
 
-    <!-- Your Big Board Section -->
-    <section id="custom-board">
-        <h2>Your Big Board</h2>
+    <div class="container big-board">
+        <h2>Big Board</h2>
         <table>
             <thead>
                 <tr>
-                    <th>Name</th>
+                    <th>Rank</th>
+                    <th>Player</th>
                     <th>Position</th>
-                    <th>College</th>
+                    <th>Overall Grade</th>
                 </tr>
             </thead>
-            <tbody id="custom-board-data">
-                <!-- Players will be added dynamically here -->
+            <tbody id="bigBoardTable">
+                <!-- Populated dynamically -->
             </tbody>
         </table>
-    </section>
+        <button onclick="gradeRandomProspect()">Assign Random Grades</button>
+    </div>
 
-    <!-- Prospects Table Section -->
-    <section id="prospect-list">
-        <h2>Top Prospects</h2>
-        <table>
-            <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>Position</th>
-                    <th>College</th>
-                </tr>
-            </thead>
-            <tbody id="prospect-data">
-                <!-- Players will be added dynamically here -->
-            </tbody>
-        </table>
-    </section>
+    <script>
+        // Predefined 2025 NFL Draft Prospects
+        const draftProspects2025 = [
+            { name: "Caleb Williams", position: "Quarterback", grade: null },
+            { name: "Marvin Harrison Jr.", position: "Wide Receiver", grade: null },
+            { name: "Olumuyiwa Fashanu", position: "Offensive Tackle", grade: null },
+            { name: "Drake Maye", position: "Quarterback", grade: null },
+            { name: "Brock Bowers", position: "Tight End", grade: null },
+            { name: "Dallas Turner", position: "Edge", grade: null },
+            { name: "Jer'Zhan Newton", position: "Defensive Interior", grade: null },
+            { name: "Joe Alt", position: "Offensive Tackle", grade: null },
+            { name: "Emeka Egbuka", position: "Wide Receiver", grade: null },
+            { name: "Kool-Aid McKinstry", position: "Cornerback", grade: null }
+        ];
 
-    <script src="script.js"></script>
+        // Populate the draft prospects in the Big Board
+        function populateBigBoard() {
+            const bigBoard = document.getElementById("bigBoardTable");
+            bigBoard.innerHTML = ""; // Clear table
+
+            draftProspects2025.forEach((prospect, index) => {
+                const row = document.createElement("tr");
+                row.innerHTML = `
+                    <td>${index + 1}</td>
+                    <td>${prospect.name}</td>
+                    <td>${prospect.position}</td>
+                    <td>${prospect.grade || "Pending"}</td>
+                `;
+                bigBoard.appendChild(row);
+            });
+        }
+
+        // Assign a random grade to a specific prospect
+        function gradeRandomProspect() {
+            const randomIndex = Math.floor(Math.random() * draftProspects2025.length);
+            const prospect = draftProspects2025[randomIndex];
+            if (prospect.grade === null) {
+                const randomGrade = (Math.random() * 9 + 1).toFixed(2); // Generate grade between 1 and 10
+                prospect.grade = randomGrade;
+                alert(`Assigned a grade of ${randomGrade} to ${prospect.name}`);
+            } else {
+                alert(`${prospect.name} already has a grade.`);
+            }
+            populateBigBoard(); // Re-render table with updated grades
+        }
+
+        // Assign grade manually for a specific prospect
+        function gradeProspect(name) {
+            const prospect = draftProspects2025.find(player => player.name === name);
+            if (!prospect) {
+                alert("Prospect not found.");
+                return;
+            }
+
+            const grade = prompt(`Enter the grade for ${name}:`, 0);
+            if (grade !== null && !isNaN(grade)) {
+                prospect.grade = parseFloat(grade).toFixed(2);
+
+                // Update the Big Board
+                populateBigBoard(); // Re-render the updated table
+            }
+        }
+
+        // Event Listener to load initial prospects into the table
+        document.addEventListener("DOMContentLoaded", populateBigBoard);
+    </script>
 </body>
 </html>
